@@ -16,6 +16,8 @@ It may help to consider the DAG of the parallel program.
 
 References:
 
+Update: I had to change my implementation of mergesort to be recursive rather than itertive. This is because iterative mergesort I implemented is failing to merge the elements properly resulting the tests to fail.
+
 I used my iterative mergesort i did in my other exercise 
 
 https://www.geeksforgeeks.org/javascript-promise/
