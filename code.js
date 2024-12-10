@@ -33,12 +33,11 @@ async function mergeSortIterative(array) {
 
 // Async merge function to merge two sorted subarrays
 async function merge(array, LE, Mid, RE) {
+    console.log(`Merging: LE = ${LE}, Mid = ${Mid}, RE = ${RE}`);
     let LS = LE;  
     let RS = Mid + 1;
-    // This array will hold the merged result
-    let merged = [];
+    let merged = [];  // This array will hold the merged result
 
-    // Merge the two sorted subarrays into a single sorted array.
     while (LS <= Mid && RS <= RE) {
         if (array[LS] <= array[RS]) {
             merged.push(array[LS++]);
@@ -47,18 +46,16 @@ async function merge(array, LE, Mid, RE) {
         }
     }
 
-    // If there are remaining elements in the left subarray
     while (LS <= Mid) {
         merged.push(array[LS++]);
     }
 
-    // If there are remaining elements in the right subarray
     while (RS <= RE) {
         merged.push(array[RS++]);
     }
 
-    // After merging, place the sorted subarray back into the main array.
     for (let k = LE; k <= RE; k++) {
         array[k] = merged[k - LE];
     }
+    console.log(`Array after merge: ${JSON.stringify(array)}`);
 }
