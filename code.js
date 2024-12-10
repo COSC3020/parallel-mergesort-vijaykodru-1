@@ -1,6 +1,5 @@
 async function parallelMergesort(array) {
-    const length = array.length;
-    //base case for 1 or 0 elements present in the array
+    // Base case for 1 or 0 elements present in the array
     if (array.length <= 1) {
         return array;
     } else {
@@ -9,11 +8,11 @@ async function parallelMergesort(array) {
     }
 }
 
-//async function for mergesort
+// Async function for merge sort
 async function mergeSortIterative(array) {
     const length = array.length;
     for (let i = 1; i < length; i *= 2) {
-        let promises = [];  //Hold promises for each parallel merge operation.
+        let promises = [];  // Hold promises for each parallel merge operation.
 
         // The inner loop handles merging pairs of subarrays of size 'i' in parallel.
         for (let LE = 0; LE < length - 1; LE += 2 * i) {
@@ -37,7 +36,7 @@ async function merge(array, LE, Mid, RE) {
     let LS = LE;  
     let RS = Mid + 1;
     // This array will hold the merged result
-    let merged = []; 
+    let merged = [];
 
     // Merge the two sorted subarrays into a single sorted array.
     while (LS <= Mid && RS <= RE) {
